@@ -15,13 +15,17 @@
 .discount {
   position: relative;
 }
+.disp-noactive {
+  display: none;
+}
+
 .activePrice {
   width: 46px;
   height: 26px;
   position: absolute;
   background: #f17228;
   color: white;
-  border-radius: 0 4px 0 30px;
+  border-radius: 0 7px 0 30px;
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
   right: 0;
@@ -127,5 +131,8 @@
   .price {
     color: #f17228;
     font-size: 16px;
+  }
+  .hover {
+    margin: -15px;
   }
 }

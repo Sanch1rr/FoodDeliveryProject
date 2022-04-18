@@ -6,14 +6,24 @@ export default function SingleCard(props) {
     <div className="d-flex">
       <div className="card">
         <div className="hover">
-          <img src={props.data.image} alt="" />
+          <img src="../images/basket_icon.svg" alt="" />
           <a href="" className="basket-text">
             Сагслах
           </a>
         </div>
+
         <div className="discount">
-          <p class="activePrice">{props.data.discount + "%"}</p>
-          <img className="card-img" src={props.data.img} />
+          <p
+            class={`${
+              props.data.discount > 0 ? "activePrice" : "disp-noactive"
+            }`}
+          >
+            {props.data.discount + "%"}
+          </p>
+          <img
+            className="card-img"
+            src={`https://mtars-fooddelivery.s3.ap-southeast-1.amazonaws.com${props.data.image}`}
+          />
         </div>
 
         <div className="card-desc">
@@ -22,7 +32,13 @@ export default function SingleCard(props) {
             {props.data.price - (props.data.price * props.data.discount) / 100}
             {"₮"}
           </span>
-          <strike className="price-strike">${props.data.price}</strike>
+          <strike
+            className={`${
+              props.data.discount > 0 ? "price-strike" : "disp-noactive"
+            }`}
+          >
+            {props.data.price}
+          </strike>
         </div>
       </div>
     </div>

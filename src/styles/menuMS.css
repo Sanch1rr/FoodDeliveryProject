@@ -1,0 +1,55 @@
+.menu-btns {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: auto;
+  list-style-type: none;
+}
+.menu-btns:first-child {
+  padding-left: 0;
+}
+.menu-btn {
+  min-width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid #f17228;
+  background-color: white;
+  color: #f17228;
+  font-size: 12px;
+  margin: 5px;
+  text-align: center;
+}
+.menu-height {
+  min-height: calc(100vh - (67px + 511px));
+}
+.menu-btn:focus {
+  background-color: #f17228;
+  color: white;
+}
+
+.menu-btns .active {
+  background-color: #f17228;
+  color: white;
+  min-width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid #f17228;
+  font-size: 12px;
+  margin: 5px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .menu-btn {
+    min-width: 160px;
+    color: black;
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .menu-btn {
+    min-width: 181px;
+    height: 48px;
+    color: black;
+    font-size: 16px;
+  }
+}

@@ -36,7 +36,6 @@
 #form-control-css:focus {
   box-shadow: none;
 }
-
 #form-control-css:focus {
   background-image: url("/public/images/search2.svg");
 }
@@ -67,7 +66,7 @@
   .basket {
     display: block;
   }
-  .form-control {
+  .search-form .form-control {
     display: none !important;
   }
   .form-control:active {
@@ -85,7 +84,7 @@
   .nav-collapse {
     order: 1;
   }
-  .form-control {
+  .search-form .form-control {
     display: none !important;
   }
   .menu-text {

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Login from "./modals/Login";
 import {
   Navbar,
   Container,
@@ -8,24 +9,29 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import "../css/header.css";
-import OffCanvasExample from "./modals/BasketSideBar";
 
 export default function Header() {
   const [selected, setSelected] = useState("mainSel");
   const [login, setLogin] = useState(true);
   const [name1, setName] = useState("Hongoroo");
   const [tablet, setTablet] = useState(true);
+  const [screenSize, setScreenSize] = useState();
+  useEffect(() => {
+    setScreenSize(window.innerWidth);
+  }, []);
 
   return (
     <Navbar bg="light" expand="sm">
       <Container>
         <Navbar.Brand
-          href="#"
+          href="/"
           style={{ color: "#f17228", fontWeight: "bold" }}
           className="navbar-logo"
         >
-          <img src="./images/iamage.png" alt="" className="header-logo" />
-          <span className="menu-text1">Food delivery</span>
+          <div>
+            <img src="./images/iamage.png" alt="" className="header-logo" />
+            <span className="menu-text1">Food delivery</span>
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="navbarScroll"
@@ -41,7 +47,7 @@ export default function Header() {
           >
             <Nav.Link
               id="navbar-menu-text"
-              href="#action1"
+              href="/"
               onClick={() => setSelected("mainSel")}
               className={selected == "mainSel" ? "activeMen" : "inactiveMen"}
             >
@@ -49,7 +55,7 @@ export default function Header() {
             </Nav.Link>
             <Nav.Link
               id="navbar-menu-text"
-              href="#action2"
+              href="/menu/*"
               onClick={() => setSelected("foodSel")}
               className={selected == "foodSel" ? "activeMen" : "inactiveMen"}
             >
@@ -70,8 +76,7 @@ export default function Header() {
             <svg
               style={{ margin: "15px" }}
               id="form-icon"
-              className="search-svg"
-              className={`d-${tablet ? "flex" : "none"} d-lg-none`}
+              className={`d-${tablet ? "flex" : "none"} d-lg-none search-svg`}
               width="13"
               height="13"
               viewBox="0 0 13 13"
@@ -89,13 +94,13 @@ export default function Header() {
               type="search"
               placeholder="Хайх"
               aria-label="Search"
-              className="form-control"
-              className={`d-${tablet ? "none" : "block"} d-lg-block`}
+              className={`d-${
+                tablet ? "none" : "block"
+              } d-lg-block form-control`}
             />
           </Form>
           <div className="d-flex">
-            <OffCanvasExample />
-            {/* <Nav.Link href="#action4" id="navbar-menu-link">
+            <Nav.Link href="#action4" id="navbar-menu-link">
               <svg
                 className="basket logo"
                 style={{ margin: "5px" }}
@@ -111,32 +116,29 @@ export default function Header() {
                 />
               </svg>
               <span className="menu-text">Сагс</span>
-             
-            </Nav.Link> */}
+            </Nav.Link>
             {login ? (
-              <Nav.Link
-                href="#action5"
-                id="navbar-menu-link"
-                onClick={() => {
-                  setLogin(false);
-                }}
-              >
-                <svg
-                  className="logo"
-                  style={{ margin: "5px" }}
-                  width="14"
-                  height="15"
-                  viewBox="0 0 14 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.43359 9.0625C8.64062 9.0625 8.28516 9.5 7 9.5C5.6875 9.5 5.33203 9.0625 4.53906 9.0625C2.51562 9.0625 0.875 10.7305 0.875 12.7539V13.4375C0.875 14.1758 1.44922 14.75 2.1875 14.75H11.8125C12.5234 14.75 13.125 14.1758 13.125 13.4375V12.7539C13.125 10.7305 11.457 9.0625 9.43359 9.0625ZM11.8125 13.4375H2.1875V12.7539C2.1875 11.4414 3.22656 10.375 4.53906 10.375C4.94922 10.375 5.57812 10.8125 7 10.8125C8.39453 10.8125 9.02344 10.375 9.43359 10.375C10.7461 10.375 11.8125 11.4414 11.8125 12.7539V13.4375ZM7 8.625C9.16016 8.625 10.9375 6.875 10.9375 4.6875C10.9375 2.52734 9.16016 0.75 7 0.75C4.8125 0.75 3.0625 2.52734 3.0625 4.6875C3.0625 6.875 4.8125 8.625 7 8.625ZM7 2.0625C8.42188 2.0625 9.625 3.26562 9.625 4.6875C9.625 6.13672 8.42188 7.3125 7 7.3125C5.55078 7.3125 4.375 6.13672 4.375 4.6875C4.375 3.26562 5.55078 2.0625 7 2.0625Z"
-                    fill="#F17228"
-                  />
-                </svg>
-                <span className="menu-text">Нэвтрэх</span>
-              </Nav.Link>
+              screenSize < 992 ? (
+                <Nav.Link href="/login" id="navbar-menu-link">
+                  <svg
+                    className="logo"
+                    style={{ margin: "5px" }}
+                    width="14"
+                    height="15"
+                    viewBox="0 0 14 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.43359 9.0625C8.64062 9.0625 8.28516 9.5 7 9.5C5.6875 9.5 5.33203 9.0625 4.53906 9.0625C2.51562 9.0625 0.875 10.7305 0.875 12.7539V13.4375C0.875 14.1758 1.44922 14.75 2.1875 14.75H11.8125C12.5234 14.75 13.125 14.1758 13.125 13.4375V12.7539C13.125 10.7305 11.457 9.0625 9.43359 9.0625ZM11.8125 13.4375H2.1875V12.7539C2.1875 11.4414 3.22656 10.375 4.53906 10.375C4.94922 10.375 5.57812 10.8125 7 10.8125C8.39453 10.8125 9.02344 10.375 9.43359 10.375C10.7461 10.375 11.8125 11.4414 11.8125 12.7539V13.4375ZM7 8.625C9.16016 8.625 10.9375 6.875 10.9375 4.6875C10.9375 2.52734 9.16016 0.75 7 0.75C4.8125 0.75 3.0625 2.52734 3.0625 4.6875C3.0625 6.875 4.8125 8.625 7 8.625ZM7 2.0625C8.42188 2.0625 9.625 3.26562 9.625 4.6875C9.625 6.13672 8.42188 7.3125 7 7.3125C5.55078 7.3125 4.375 6.13672 4.375 4.6875C4.375 3.26562 5.55078 2.0625 7 2.0625Z"
+                      fill="#F17228"
+                    />
+                  </svg>
+                  <span className="menu-text">Нэвтрэх</span>
+                </Nav.Link>
+              ) : (
+                <Login />
+              )
             ) : (
               <NavDropdown title={name1} id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.2">
