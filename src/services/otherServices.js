@@ -7,8 +7,23 @@ const getAllFood = async () => {
     // body: JSON.stringify(),
   });
 };
+
+const getBasketInfo = async () => {
+  return await fetch("https://dev-api.mstars.mn/api/basket-info", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_email: "andyerdene@gmail.com",
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFkMmFjOWY1YzFiMDI2NDE4NTY0Nzk4IiwiZW1haWwiOiJraGFuZ2Fpa2h1dUBnbWFpbC5jb20iLCJpYXQiOjE2NDI0MzU3ODgsImV4cCI6MTY0MjQ0Mjk4OH0.diX9JO-7szd3epM0ZJjvOI59Cd7uUCOprAMT-KjLPDY",
+    }),
+  });
+};
 export const otherServices = {
   getAllFood,
+  getBasketInfo,
 };
 
 /*
