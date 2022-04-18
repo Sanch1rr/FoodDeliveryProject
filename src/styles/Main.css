@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;600;700&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+.slide-body {
+  position: absolute;
+  top: 3%;
+  left: 9%;
+  right: 13%;
+  bottom: 10%;
+}
+.slide-body h1 {
+  color: #f17228;
+  font-weight: 600;
+  line-height: 90%;
+}
+.slide-body p {
+  color: #4d2000;
+  font-weight: 600;
+  line-height: 120%;
+  width: 100%;
+  display: inline-block;
+}
+.slide-body hr {
+  display: inline-block;
+}
+
+.carousel-indicators button.active {
+  background-color: #f17228;
+  width: 25px !important;
+  height: 10px;
+  border-radius: 11px;
+}
+.carousel-indicators button {
+  background-color: #f17228 !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 11px;
+}
+
+@media screen and (max-width: 576px) {
+  .slide-tab {
+    display: none;
+  }
+  .slide-web {
+    display: none;
+  }
+  .slide-body hr {
+    display: none;
+  }
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .slide-mobile {
+    display: none;
+  }
+
+  .slide-web {
+    display: none;
+  }
+  .slide-body p {
+    width: 75%;
+  }
+  .slide-body hr {
+    width: 220px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .slide-mobile {
+    display: none;
+  }
+  .slide-tab {
+    display: none;
+  }
+  .slide-body p {
+    width: 50%;
+  }
+  .slide-body hr {
+    width: 300px;
+  }
+  .carousel-control-next-icon {
+    background-image: url("/public/images/nexticon.svg") !important;
+    width: 20px !important;
+    background-color: white;
+    border-radius: 30%;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 2248px) {
+  .slide-mobile {
+    display: none;
+  }
+
+  .slide-web {
+    display: none;
+  }
+  .slide-body p {
+    width: 75%;
+  }
+  .slide-body hr {
+    width: 340px;
+  }
+}
+/* ----------------------------------------------------------------- */
+
+.features-body {
+  background: linear-gradient(
+    179.24deg,
+    #f17228 -150%,
+    rgba(255, 255, 255, 0) 25%
+  );
+}
+.features {
+  /* margin: 30px 50px; */
+  /* margin-top: ; */
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+}
+.features img {
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  background: rgba(255, 215, 191, 0.28);
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.feature-text h4 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 0px;
+}
+.feature-text p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+.feature-text {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+/* ========================================================== */
+.see-foods {
+  margin-top: 30px;
+}
+.food-info-icon {
+  width: 12px;
+  background-color: #f17228;
+  height: 25px;
+}
+.see-foods a {
+  text-decoration: none;
+  color: #f17228;
+  font-size: 28px;
+}
+.see-foods p {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21px;
+  margin-top: 18px;
+  margin-left: 10px;
+}
